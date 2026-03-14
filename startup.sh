@@ -8,8 +8,9 @@
 ##Email        :jeremiah@thecomputerworksnm.com
 ###########################################################
 
-logfile=~/install.log
-setupdir=~/system_setup
+logfile="~/install.log"
+setupdir="~/system_setup"
+setupscript="$setupdir/linuxsetup.sh"
 
 log() {
   msg=">>> $1"
@@ -33,6 +34,10 @@ gh auth login
 
 mkdir -p $setupdir
 
-git clone git@github.com:j2-82/bootstrap.git $setupdir
+git clone git@github.com:j2-82/bootstrap $setupdir
+
+chmod +x $setupscript
+
+$setupscript
 
 
